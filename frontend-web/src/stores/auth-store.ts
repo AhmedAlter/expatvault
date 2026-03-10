@@ -24,12 +24,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     set({ isLoading: true });
     try {
       const isEmail = identifier.includes("@");
-      const payload = isEmail
-        ? { email: identifier, password }
-        : { email: identifier, password, phone: identifier };
 
       const res = await api.post("/api/v1/auth/login", {
-        email: isEmail ? identifier : `${identifier}@phone.expatvault.local`,
+        email: isEmail ? identifier : undefined,
+        phone: isEmail ? undefined : identifier,
         password,
       });
       localStorage.setItem("access_token", res.data.access_token);

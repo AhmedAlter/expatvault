@@ -75,7 +75,7 @@ export function FamilyPage() {
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted-foreground">{members.length}/5 members</p>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogTrigger asChild>
+            <DialogTrigger>
               <Button className="bg-oasis-teal hover:bg-oasis-teal/90 text-white" disabled={members.length >= 5}>
                 <Plus className="h-4 w-4 mr-2" />
                 Add Member

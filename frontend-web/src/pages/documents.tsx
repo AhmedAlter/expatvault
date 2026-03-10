@@ -64,7 +64,7 @@ export function DocumentsPage() {
             />
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogTrigger asChild>
+            <DialogTrigger>
               <Button className="bg-oasis-teal hover:bg-oasis-teal/90 text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Upload Document

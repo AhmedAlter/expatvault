@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/layout/header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,16 +9,9 @@ import type { Reminder } from "@/types";
 
 export function RemindersPage() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
-  const [loading, setLoading] = useState(true);
-
   const fetchReminders = async () => {
-    setLoading(true);
-    try {
-      const res = await api.get("/api/v1/reminders/");
-      setReminders(res.data);
-    } finally {
-      setLoading(false);
-    }
+    const res = await api.get("/api/v1/reminders/");
+    setReminders(res.data);
   };
 
   useEffect(() => {
